@@ -86,7 +86,11 @@ init_session_state()
 def render_sidebar():
     """渲染侧边栏"""
     with st.sidebar:
-        st.title("🧠 CogSense")
+        # 将标题替换为自定义字号的 HTML
+        st.markdown(
+            "<h1 style='font-size: 36px;'>🧠 CogSense</h1>",
+            unsafe_allow_html=True
+        )
         st.markdown("---")
         
         # 页面选择
@@ -144,9 +148,16 @@ def render_sidebar():
             **CogSense** 是一个基于自然对话的认知健康被动监测系统原型。
             
             **版本**: 1.0.0  
-            **开发**: AI-Powered  
-            **技术栈**: Python + Streamlit + 通义千问
+            **发布日期**: 2026-05-15
             """)
+        
+        # 作者信息
+        st.markdown("---")
+        st.markdown("**Developed by**")
+        st.markdown("👤 JING_KY")
+        st.markdown("📧 jingky@life.hkbu.edu.hk")
+        st.markdown("[🔗 GitHub Repository](https://github.com/JING_KY/CogSense)")
+        st.caption("HKBU | SHS")
         
         return page
 
