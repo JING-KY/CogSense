@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+
+# 虚拟环境
+venv/
+env/
+ENV/
+cogsense/
+
+# 数据库（本地测试数据，不上传）
+database/cogsense.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 临时文件
+*.log
+*.tmp
+*.bak
+
+# 分析结果（可选：如果不想上传分析结果）
+analysis_*.csv
+key_numbers.json
+
+# 图表文件（可选：如果不想上传生成的图表）
+figure*.png
+figure*.html
+
+# 测试脚本
+test_*.py
+generate_statistics.py
+generate_figure*.py
