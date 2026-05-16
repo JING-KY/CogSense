@@ -244,80 +244,80 @@ def render_overview_page():
     st.subheader("🏗️ 系统架构")
 
     st.markdown("""
-        <style>
-            div[data-testid="stVerticalBlock"] > div {
-                gap: 0 !important;
-                margin-bottom: 0 !important;
-            }
-            .layer {
-                background: white;
-                border-radius: 10px;
-                padding: 20px;
-                margin: 2px 0;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                overflow: hidden;
-            }
-            .layer-title {
-                font-size: clamp(14px, 2vw, 20px);
-                font-weight: bold;
-                color: #1F2937;
-                margin-bottom: 2px;
-                display: flex;
-                align-items: center;
-            }
-            .layer-title .icon {
-                font-size: clamp(16px, 2.5vw, 24px);
-                margin-right: 10px;
-            }
-            .modules {
-                display: flex;
-                flex-wrap: nowrap;
-                gap: clamp(6px, 1vw, 15px);
-                margin-top: 2px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .module-card {
-                flex: 1 1 0;
-                min-width: 0;
-                background: #F9FAFB;
-                border: 2px solid #E5E7EB;
-                border-radius: 8px;
-                padding: clamp(6px, 1.5vw, 15px);
-                text-align: center;
-                transition: all 0.3s;
-                box-sizing: border-box;
-            }
-            .module-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            }
-            .module-icon {
-                font-size: clamp(18px, 3vw, 32px);
-                margin-bottom: 8px;
-                line-height: 1.2;
-            }
-            .module-name {
-                font-weight: 600;
-                color: #374151;
-                margin-bottom: 5px;
-                font-size: clamp(10px, 1.2vw, 14px);
-                word-break: break-word;
-            }
-            .module-desc {
-                font-size: clamp(9px, 1vw, 12px);
-                color: #6B7280;
-                word-break: break-word;
-            }
-            .arrow {
-                text-align: center;
-                font-size: 30px;
-                color: white;
-                margin: 10px 0;
-            }
-        </style>
-        <div class="architecture-container">
-        """, unsafe_allow_html=True)
+    <style>
+        div[data-testid="stMarkdownContainer"] {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .layer {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .layer-title {
+            font-size: clamp(14px, 2vw, 20px);
+            font-weight: bold;
+            color: #1F2937;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .layer-title .icon {
+            font-size: clamp(16px, 2.5vw, 24px);
+            margin-right: 10px;
+        }
+        .modules {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: clamp(6px, 1vw, 15px);
+            margin-top: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .module-card {
+            flex: 1 1 0;
+            min-width: 0;
+            background: #F9FAFB;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            padding: clamp(6px, 1.5vw, 15px);
+            text-align: center;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .module-icon {
+            font-size: clamp(18px, 3vw, 32px);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .module-name {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 5px;
+            font-size: clamp(10px, 1.2vw, 14px);
+            word-break: break-word;
+        }
+        .module-desc {
+            font-size: clamp(9px, 1vw, 12px);
+            color: #6B7280;
+            word-break: break-word;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            margin: 10px 0;
+        }
+    </style>
+    <div class="architecture-container">
+    """, unsafe_allow_html=True)
 
     # 第一层：用户界面层
     st.markdown("""
