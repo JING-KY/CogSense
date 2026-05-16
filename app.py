@@ -967,7 +967,7 @@ def render_overview_page():
                 </div>
                 <div class="module-card">
                     <div class="module-icon">💾</div>
-                    <div class="module-name">数据库管理</div>
+                    <div class="module-name">数据管理</div>
                     <div class="module-desc">Database Manager</div>
                 </div>
                 <div class="module-card">
