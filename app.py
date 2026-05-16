@@ -218,7 +218,11 @@ div[data-testid="stMetricValue"] > div {
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #0f3d6b 0%, #1a5a99 60%, #1e6fb8 100%) !important;
     border-right: none !important;
+    padding-top: 0rem !important;
 }
+section[data-testid="stSidebar"] > div {
+    padding-top: 1rem !important;
+}            
 section[data-testid="stSidebar"] * {
     color: rgba(255,255,255,0.92) !important;
 }
@@ -636,7 +640,7 @@ def render_sidebar():
         # 将标题替换为自定义字号的 HTML
         st.markdown(
             """
-            <div style="padding: 8px 0 4px;">
+            <div style="padding: 0px 0 8px;">
                 <h1 style='font-size: 36px; margin: 6; color: #fff !important; font-weight: 400; letter-spacing: -1px;'>
                     🧠 CogSense
                 </h1>
@@ -1101,7 +1105,7 @@ def render_overview_page():
     </div>
     <div class="cs-quickstart">
         <div class="cs-quickstart-num">2</div>
-        <div class="cs-quickstart-text"><strong>实时监测</strong>：前往"实时监测"页面，模拟对话流</div>
+        <div class="cs-quickstart-text"><strong>实时监测</strong>：前往"实时监测"页面，模拟对话流，完成后点击"查看完整分析"</div>
     </div>
     <div class="cs-quickstart">
         <div class="cs-quickstart-num">3</div>
@@ -1183,7 +1187,7 @@ def render_monitoring_page():
         return
     
     # 对话选择
-    col1, col2, col3 = st.columns([2, 2, 1])
+    col1, col2 = st.columns(2)
     
     with col1:
         # 按组别筛选
@@ -1199,15 +1203,6 @@ def render_monitoring_page():
             ["全部"] + DIALOGUE_CONFIG["scenarios"]
         )
     
-    with col3:
-        # 随机选择按钮
-        if st.button("🎲 随机选择", use_container_width=True):
-            filtered_dialogues = filter_dialogues(group_filter, scenario_filter)
-            if filtered_dialogues:
-                st.session_state.current_dialogue = random.choice(filtered_dialogues)
-                st.session_state.monitoring_index = 0
-                st.session_state.monitoring_active = False
-                st.session_state.analysis_result = None
     
     # 筛选对话
     filtered_dialogues = filter_dialogues(group_filter, scenario_filter)
