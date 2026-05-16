@@ -89,29 +89,30 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-    --clr-primary:      #1A6FB8;
-    --clr-primary-lt:   #EBF4FF;
-    --clr-primary-dk:   #124E87;
-    --clr-teal:         #2A9D8F;
-    --clr-teal-lt:      #E6F5F4;
-    --clr-coral:        #E76F51;
-    --clr-bg:           #F5F7FA;
+    /* ── Neural Indigo 主题 ── */
+    --clr-primary:      #5B67E8;   /* 靛蓝·神经 */
+    --clr-primary-lt:   #EEF0FD;   /* 浅靛蓝 */
+    --clr-primary-dk:   #3D4AC0;   /* 深靛蓝 */
+    --clr-teal:         #22C4A4;   /* 青绿·健康 */
+    --clr-teal-lt:      #D4F7F1;   /* 浅青绿 */
+    --clr-coral:        #E8445A;   /* 玫瑰红 */
+    --clr-bg:           #F5F6FE;   /* 极淡紫底色 */
     --clr-card:         #FFFFFF;
-    --clr-border:       #E2E8F0;
-    --clr-text:         #1A202C;
-    --clr-text-muted:   #718096;
-    --clr-success:      #2A9D5C;
-    --clr-success-lt:   #E6F7EE;
-    --clr-warn:         #C97A10;
-    --clr-warn-lt:      #FEF3E2;
-    --clr-error:        #C0392B;
-    --clr-error-lt:     #FDECEA;
+    --clr-border:       #DDE1F8;   /* 靛蓝系边框 */
+    --clr-text:         #1A1F4E;   /* 深靛文字 */
+    --clr-text-muted:   #6B7299;   /* 柔和灰紫 */
+    --clr-success:      #22C4A4;
+    --clr-success-lt:   #D4F7F1;
+    --clr-warn:         #F5A623;   /* 琥珀警告 */
+    --clr-warn-lt:      #FEF0D4;
+    --clr-error:        #E8445A;
+    --clr-error-lt:     #FCE4E8;
     --radius-sm:        8px;
     --radius-md:        12px;
     --radius-lg:        16px;
-    --shadow-sm:        0 1px 4px rgba(0,0,0,0.07);
-    --shadow-md:        0 4px 16px rgba(0,0,0,0.09);
-    --shadow-lg:        0 8px 32px rgba(0,0,0,0.12);
+    --shadow-sm:        0 1px 4px rgba(91,103,232,0.08);
+    --shadow-md:        0 4px 16px rgba(91,103,232,0.12);
+    --shadow-lg:        0 8px 32px rgba(91,103,232,0.18);
     --transition:       all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -185,7 +186,7 @@ div[data-testid="stTextInput"] > div > div > input {
 div[data-testid="stSelectbox"] > div > div:focus-within,
 div[data-testid="stTextInput"] > div > div > input:focus {
     border-color: var(--clr-primary) !important;
-    box-shadow: 0 0 0 3px rgba(26, 111, 184, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(90, 123, 160, 0.15) !important;
 }
 
 /* ── Metric 卡片 ── */
@@ -216,7 +217,7 @@ div[data-testid="stMetricValue"] > div {
 
 /* ── 侧边栏 ── */
 section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #0f3d6b 0%, #1a5a99 60%, #1e6fb8 100%) !important;
+    background: linear-gradient(180deg, #163E4B 0%, #1E5C6B 55%, #2C7A8E 100%) !important;
     border-right: none !important;
     padding-top: 0rem !important;
 }
@@ -460,7 +461,7 @@ hr {
 
 /* ── 报告封面 ── */
 .cs-report-header {
-    background: linear-gradient(135deg, var(--clr-primary) 0%, #1e8cc0 100%);
+    background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-teal) 100%);
     border-radius: var(--radius-lg);
     padding: 32px 36px;
     color: #fff;
@@ -600,8 +601,8 @@ hr {
 
 /* ── 分析完成提示区 ── */
 .cs-completion-card {
-    background: linear-gradient(135deg, #e6f7ee 0%, #ebf4ff 100%);
-    border: 1px solid #a8d5bf;
+    background: linear-gradient(135deg, #BFDFD2 0%, #D0ECF0 100%);
+    border: 1px solid #7BC0CD;
     border-radius: var(--radius-lg);
     padding: 24px 28px;
     margin-top: 8px;
@@ -792,9 +793,9 @@ def render_overview_page():
     with col1:
         st.markdown("""
         <div class="cs-feature-card">
-            <div class="cs-feature-icon" style="background:#EBF4FF;">🎙️</div>
+            <div class="cs-feature-icon" style="background:#BFDFD2;">🎙️</div>
             <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#1A202C;">对话生成</div>
-            <div style="font-size:13px; color:#718096; line-height:1.8;">
+            <div style="font-size:13px; color:#5F7D8A; line-height:1.8;">
                 ✦ 模拟真实家庭场景<br>
                 ✦ 三类不同认知状态<br>
                 ✦ 多样化的对话场景
@@ -805,9 +806,9 @@ def render_overview_page():
     with col2:
         st.markdown("""
         <div class="cs-feature-card">
-            <div class="cs-feature-icon" style="background:#E6F5F4;">🔍</div>
+            <div class="cs-feature-icon" style="background:#D0ECF0;">🔍</div>
             <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#1A202C;">语言分析</div>
-            <div style="font-size:13px; color:#718096; line-height:1.8;">
+            <div style="font-size:13px; color:#5F7D8A; line-height:1.8;">
                 ✦ 词汇丰富度分析<br>
                 ✦ 语义连贯性评估<br>
                 ✦ 时间定向性检测
@@ -818,9 +819,9 @@ def render_overview_page():
     with col3:
         st.markdown("""
         <div class="cs-feature-card">
-            <div class="cs-feature-icon" style="background:#FEF3E2;">📊</div>
+            <div class="cs-feature-icon" style="background:#F5E6CB;">📊</div>
             <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#1A202C;">认知评分</div>
-            <div style="font-size:13px; color:#718096; line-height:1.8;">
+            <div style="font-size:13px; color:#5F7D8A; line-height:1.8;">
                 ✦ 五维评分体系<br>
                 ✦ 风险等级评定<br>
                 ✦ 专业报告生成
@@ -912,7 +913,7 @@ def render_overview_page():
 
     # 第一层：用户界面层
     st.markdown("""
-        <div class="layer" style="border-left: 5px solid #3B82F6;">
+        <div class="layer" style="border-left: 5px solid #7BC0CD;">
             <div class="layer-title">
                 <span class="icon">🖥️</span>
                 用户界面层 (Streamlit Web Application)
@@ -944,7 +945,7 @@ def render_overview_page():
 
     # 第二层：核心模块层
     st.markdown("""
-        <div class="layer" style="border-left: 5px solid #EF553B;">
+        <div class="layer" style="border-left: 5px solid #EA9E58;">
             <div class="layer-title">
                 <span class="icon">⚙️</span>
                 核心模块层 (Business Logic & Processing)
@@ -981,7 +982,7 @@ def render_overview_page():
 
     # 第三层：数据层
     st.markdown("""
-        <div class="layer" style="border-left: 5px solid #10B981;">
+        <div class="layer" style="border-left: 5px solid #51999F;">
             <div class="layer-title">
                 <span class="icon">💿</span>
                 数据层 (Storage & External Services)
@@ -1056,40 +1057,40 @@ def render_overview_page():
     
     with col2:
         st.markdown("""
-        <div class="cs-card" style="border-top: 3px solid #1A6FB8;">
-            <div style="font-weight:700; font-size:15px; margin-bottom:14px; color:#1A6FB8;">
+        <div class="cs-card" style="border-top: 3px solid #4198AC;">
+            <div style="font-weight:700; font-size:15px; margin-bottom:14px; color:#4198AC;">
                 📐 五维认知评分体系
             </div>
             <div class="cs-dim-item">
-                <div class="cs-dim-dot" style="background:#1A6FB8;"></div>
-                <div class="cs-dim-name">记忆力 <span style="font-size:11px;color:#718096;">(Memory)</span></div>
+                <div class="cs-dim-dot" style="background:#7BC0CD;"></div>
+                <div class="cs-dim-name">记忆力 <span style="font-size:11px;color:#5F7D8A;">(Memory)</span></div>
                 <div class="cs-dim-pct">25%</div>
             </div>
-            <div style="font-size:12px;color:#718096;padding: 2px 0 10px 22px;">评估短期记忆和信息保持能力</div>
+            <div style="font-size:12px;color:#5F7D8A;padding: 2px 0 10px 22px;">评估短期记忆和信息保持能力</div>
             <div class="cs-dim-item">
-                <div class="cs-dim-dot" style="background:#2A9D8F;"></div>
-                <div class="cs-dim-name">计划能力 <span style="font-size:11px;color:#718096;">(Planning)</span></div>
+                <div class="cs-dim-dot" style="background:#51999F;"></div>
+                <div class="cs-dim-name">计划能力 <span style="font-size:11px;color:#5F7D8A;">(Planning)</span></div>
                 <div class="cs-dim-pct">20%</div>
             </div>
-            <div style="font-size:12px;color:#718096;padding: 2px 0 10px 22px;">评估执行功能和逻辑思维能力</div>
+            <div style="font-size:12px;color:#5F7D8A;padding: 2px 0 10px 22px;">评估执行功能和逻辑思维能力</div>
             <div class="cs-dim-item">
-                <div class="cs-dim-dot" style="background:#E76F51;"></div>
-                <div class="cs-dim-name">回忆能力 <span style="font-size:11px;color:#718096;">(Recall)</span></div>
+                <div class="cs-dim-dot" style="background:#D4694D;"></div>
+                <div class="cs-dim-name">回忆能力 <span style="font-size:11px;color:#5F7D8A;">(Recall)</span></div>
                 <div class="cs-dim-pct">20%</div>
             </div>
-            <div style="font-size:12px;color:#718096;padding: 2px 0 10px 22px;">评估长期记忆和信息提取能力</div>
+            <div style="font-size:12px;color:#5F7D8A;padding: 2px 0 10px 22px;">评估长期记忆和信息提取能力</div>
             <div class="cs-dim-item">
-                <div class="cs-dim-dot" style="background:#9B59B6;"></div>
-                <div class="cs-dim-name">连贯性 <span style="font-size:11px;color:#718096;">(Coherence)</span></div>
+                <div class="cs-dim-dot" style="background:#ECB66C;"></div>
+                <div class="cs-dim-name">连贯性 <span style="font-size:11px;color:#5F7D8A;">(Coherence)</span></div>
                 <div class="cs-dim-pct">20%</div>
             </div>
-            <div style="font-size:12px;color:#718096;padding: 2px 0 10px 22px;">评估语言组织和逻辑连贯性</div>
+            <div style="font-size:12px;color:#5F7D8A;padding: 2px 0 10px 22px;">评估语言组织和逻辑连贯性</div>
             <div class="cs-dim-item">
-                <div class="cs-dim-dot" style="background:#F4A261;"></div>
-                <div class="cs-dim-name">时间定向 <span style="font-size:11px;color:#718096;">(Temporal Orientation)</span></div>
+                <div class="cs-dim-dot" style="background:#EA9E58;"></div>
+                <div class="cs-dim-name">时间定向 <span style="font-size:11px;color:#5F7D8A;">(Temporal Orientation)</span></div>
                 <div class="cs-dim-pct">15%</div>
             </div>
-            <div style="font-size:12px;color:#718096;padding: 2px 0 4px 22px;">评估时间感知和定向能力</div>
+            <div style="font-size:12px;color:#5F7D8A;padding: 2px 0 4px 22px;">评估时间感知和定向能力</div>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1236,7 +1237,7 @@ def render_monitoring_page():
     with col1:
         group_labels = {"HC": "认知健康", "MCI": "轻度认知障碍", "ED": "早期痴呆"}
         group_val = group_labels.get(selected_dialogue_data['group'], '未知')
-        group_color = {"HC": "#2A9D5C", "MCI": "#C97A10", "ED": "#C0392B"}.get(selected_dialogue_data['group'], "#718096")
+        group_color = {"HC": "#51999F", "MCI": "#D4A84B", "ED": "#D4694D"}.get(selected_dialogue_data['group'], "#5F7D8A")
         st.markdown(f"""
         <div class="cs-info-badge">
             <div class="label">认知组别</div>
@@ -1344,7 +1345,7 @@ def render_monitoring_page():
     if st.session_state.monitoring_index >= len(dialogue) and not st.session_state.monitoring_active:
         st.markdown("""
         <div class="cs-completion-card">
-            <div style="font-size:18px; font-weight:700; color:#2A9D5C; margin-bottom:6px;">
+            <div style="font-size:18px; font-weight:700; color:#51999F; margin-bottom:6px;">
                 ✅ 对话监测完成！
             </div>
             <div style="font-size:13.5px; color:#4A5568;">
@@ -1438,12 +1439,12 @@ def render_dialogue_turn(turn: dict, index: int):
     if speaker == "elder":
         st.markdown(f"""
         <div class="cs-bubble-elder">
-            <div class="cs-bubble-speaker" style="color:#1A6FB8;">
-                <span style="background:#1A6FB8;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👴</span>
+            <div class="cs-bubble-speaker" style="color:#4198AC;">
+                <span style="background:#4198AC;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👴</span>
                 老人
-                <span style="font-size:11px;color:#718096;font-weight:400;margin-left:4px;">#{index+1}</span>
+                <span style="font-size:11px;color:#5F7D8A;font-weight:400;margin-left:4px;">#{index+1}</span>
             </div>
-            <div class="cs-bubble-text" style="color:#1e40af;">
+            <div class="cs-bubble-text" style="color:#163542;">
                 {text}
             </div>
         </div>
@@ -1451,12 +1452,12 @@ def render_dialogue_turn(turn: dict, index: int):
     else:
         st.markdown(f"""
         <div class="cs-bubble-family">
-            <div class="cs-bubble-speaker" style="color:#2A9D8F;">
-                <span style="background:#2A9D8F;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👨‍👩‍👧</span>
+            <div class="cs-bubble-speaker" style="color:#51999F;">
+                <span style="background:#51999F;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👨‍👩‍👧</span>
                 家人
-                <span style="font-size:11px;color:#718096;font-weight:400;margin-left:4px;">#{index+1}</span>
+                <span style="font-size:11px;color:#5F7D8A;font-weight:400;margin-left:4px;">#{index+1}</span>
             </div>
-            <div class="cs-bubble-text" style="color:#134e4a;">
+            <div class="cs-bubble-text" style="color:#163E46;">
                 {text}
             </div>
         </div>
@@ -1614,9 +1615,9 @@ def detect_cognitive_events(dialogue: list) -> list:
 def render_event_alert(event: dict):
     """渲染事件警报"""
     severity_colors = {
-        "low": "#10b981",
-        "medium": "#f59e0b",
-        "high": "#ef4444"
+        "low": "#51999F",
+        "medium": "#D4A84B",
+        "high": "#D4694D"
     }
     
     severity_labels = {
@@ -1748,19 +1749,16 @@ def render_analytics_page():
         return
     
     # 会话选择
-    col1, col2 = st.columns([3, 1])
-    
-    with col1:
-        session_options = {s["id"]: f"#{s['id']} - {s['session_name']} ({s['created_at']})" for s in sessions}
-        selected_session_id = st.selectbox(
-            "选择会话",
-            options=list(session_options.keys()),
-            format_func=lambda x: session_options[x]
-        )
-    
-    with col2:
-        if st.button("🔄 刷新数据", use_container_width=True):
-            st.rerun()
+    session_options = {
+        s["id"]: f"#{s['id']} - {s['session_name']} ({s['created_at']})"
+        for s in sessions
+    }
+
+    selected_session_id = st.selectbox(
+        "选择会话",
+        options=list(session_options.keys()),
+        format_func=lambda x: session_options[x]
+    )
     
     # 加载会话数据
     session_data = db.load_session(selected_session_id)
@@ -1776,7 +1774,7 @@ def render_analytics_page():
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.metric("总分", f"{scores.get('total_score', 0):.1f}")
+        st.metric("总分", f"{scores.get('total_score', 0):.1f} 分")
     
     with col2:
         risk_level = scores.get('risk_level', 'unknown')
@@ -1935,7 +1933,7 @@ def render_report_page():
     # 执行摘要
     st.subheader("📋 执行摘要")
     st.markdown(f"""
-    <div class="cs-card" style="border-left: 4px solid #1A6FB8;">
+    <div class="cs-card" style="border-left: 4px solid #4198AC;">
         <div style="font-size:14.5px; line-height:1.8; color:#2D3748;">
             {report["summary"]}
         </div>
