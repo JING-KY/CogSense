@@ -89,18 +89,18 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-    /* ── Scientific Modern / Gemini-inspired 主题 ── */
-    --clr-primary:      #4F46E5;   /* 现代靛蓝·主色调 */
-    --clr-primary-lt:   #EEF2FF;   /* 极浅靛蓝 */
-    --clr-primary-dk:   #3730A3;   /* 深靛蓝 */
-    --clr-teal:         #0EA5E9;   /* 科技天蓝 (替代原青绿，与靛蓝更搭配) */
-    --clr-teal-lt:      #F0F9FF;   
-    --clr-coral:        #F43F5E;   /* 现代玫瑰红 */
-    --clr-bg:           #FAFAFA;   /* 极净清透灰白底色，比纯白更有质感 */
+    /* ── Claude-inspired 主题：白 · 暖灰 · 橙 ── */
+    --clr-primary:      #C96442;   /* Claude 标志橙·主色调 */
+    --clr-primary-lt:   #FAEEE9;   /* 极浅橙 */
+    --clr-primary-dk:   #A5502F;   /* 深橙 */
+    --clr-teal:         #D9855E;   /* 中橙·辅助色 */
+    --clr-teal-lt:      #FDF0EA;
+    --clr-coral:        #C96442;   /* 与主色统一 */
+    --clr-bg:           #FFFFFF;   /* 纯白主背景 */
     --clr-card:         #FFFFFF;
-    --clr-border:       #E5E7EB;   /* 柔和科技感边框 */
-    --clr-text:         #111827;   /* 深石板灰文字，高级感强于纯黑 */
-    --clr-text-muted:   #6B7280;   /* 柔和中灰 */
+    --clr-border:       #E5DDD4;   /* 暖米灰边框 */
+    --clr-text:         #1A1715;   /* 暖黑，接近 Claude 文字色 */
+    --clr-text-muted:   #7A736C;   /* 暖中灰 */
     --clr-success:      #10B981;   /* 健康翠绿 */
     --clr-success-lt:   #ECFDF5;
     --clr-warn:         #F59E0B;   /* 琥珀黄警告 */
@@ -110,9 +110,9 @@ st.markdown("""
     --radius-sm:        8px;
     --radius-md:        12px;
     --radius-lg:        16px;
-    --shadow-sm:        0 1px 3px rgba(17,24,39,0.06);
-    --shadow-md:        0 4px 12px rgba(17,24,39,0.08);
-    --shadow-lg:        0 10px 25px rgba(79,70,229,0.12);
+    --shadow-sm:        0 1px 3px rgba(26,23,21,0.06);
+    --shadow-md:        0 4px 12px rgba(26,23,21,0.08);
+    --shadow-lg:        0 10px 25px rgba(201,100,66,0.14);
     --transition:       all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -173,7 +173,7 @@ div.stButton > button[data-testid*="primary"]:hover {
     background: var(--clr-primary-dk) !important;
     border-color: var(--clr-primary-dk) !important;
     color: #fff !important;
-    box-shadow: 0 4px 12px rgba(79,70,229,0.3) !important;
+    box-shadow: 0 4px 12px rgba(201,100,66,0.30) !important;
 }
 
 /* ── 输入框聚焦效果 ── */
@@ -187,7 +187,7 @@ div[data-testid="stTextInput"] > div > div > input {
 div[data-testid="stSelectbox"] > div > div:focus-within,
 div[data-testid="stTextInput"] > div > div > input:focus {
     border-color: var(--clr-primary) !important;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(201, 100, 66, 0.15) !important;
 }
 
 /* ── Metric 卡片 ── */
@@ -219,85 +219,121 @@ div[data-testid="stMetricValue"] > div {
 
 /* ── 侧边栏 ── */
 section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #0A0F24 0%, #161B33 100%) !important;
+    background: linear-gradient(180deg, #C96442 0%, #A5502F 100%) !important;
     border-right: none !important;
     padding-top: 0rem !important;
 }
 section[data-testid="stSidebar"] > div {
-    padding-top: 1rem !important;
+    padding-top: 0.6rem !important;
+}
+/* 压缩侧边栏 Streamlit 默认的大留白，但保留模块间呼吸感 */
+section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    gap: 0.3rem !important;
+}
+/* radio 选项之间的间距 */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] > div {
+    gap: 2px !important;
+}
+/* 隐藏 radio 的"导航"文字标签 */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] > label:first-child {
+    display: none !important;
 }            
 section[data-testid="stSidebar"] * {
     color: rgba(255,255,255,0.95) !important;
 }
 section[data-testid="stSidebar"] .stMarkdown p,
 section[data-testid="stSidebar"] .stMarkdown li {
-    color: rgba(255,255,255,0.75) !important;
+    color: rgba(255,255,255,0.80) !important;
     font-size: 13px;
 }
 section[data-testid="stSidebar"] hr {
-    border-color: rgba(255,255,255,0.1) !important;
-    margin: 12px 0 !important;
+    border-color: rgba(255,255,255,0.2) !important;
+    margin: 6px 0 !important;
 }
 /* 侧边栏 radio 导航 */
 section[data-testid="stSidebar"] div[data-testid="stRadio"] label {
     border-radius: var(--radius-sm) !important;
-    padding: 8px 12px !important;
+    padding: 5px 10px !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
     transition: var(--transition) !important;
-    color: rgba(255,255,255,0.75) !important;
-    font-size: 14px !important;
+    color: rgba(255,255,255,0.85) !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
 }
 section[data-testid="stSidebar"] div[data-testid="stRadio"] label:hover {
-    background: rgba(255,255,255,0.08) !important;
-    color: rgba(255,255,255,0.95) !important;
+    background: rgba(255,255,255,0.12) !important;
+    color: #fff !important;
 }
 section[data-testid="stSidebar"] div[data-testid="stRadio"] [aria-checked="true"] + label,
 section[data-testid="stSidebar"] div[data-testid="stRadio"] label[data-checked="true"] {
-    background: rgba(79, 70, 229, 0.25) !important;
-    border-left: 3px solid var(--clr-primary) !important;
+    background: rgba(255,255,255,0.20) !important;
+    border-left: 3px solid #fff !important;
     font-weight: 600 !important;
     color: #fff !important;
 }
 /* 侧边栏按钮 */
 section[data-testid="stSidebar"] div.stButton > button {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.15) !important;
-    color: rgba(255,255,255,0.9) !important;
+    background: rgba(255,255,255,0.15) !important;
+    border: 1px solid rgba(255,255,255,0.30) !important;
+    color: #fff !important;
     box-shadow: none !important;
+    padding: 0.3rem 0.8rem !important;
+    min-height: unset !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
 }
 section[data-testid="stSidebar"] div.stButton > button:hover {
-    background: rgba(255,255,255,0.1) !important;
-    border-color: rgba(255,255,255,0.3) !important;
+    background: rgba(255,255,255,0.25) !important;
+    border-color: rgba(255,255,255,0.50) !important;
     color: #fff !important;
     transform: translateY(-1px) !important;
 }
 /* 侧边栏 metric */
 section[data-testid="stSidebar"] div[data-testid="stMetric"] {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(255,255,255,0.20) !important;
+    padding: 10px 12px !important;
 }
 section[data-testid="stSidebar"] div[data-testid="stMetricValue"] > div {
     color: #fff !important;
+    font-size: 20px !important;
 }
 section[data-testid="stSidebar"] div[data-testid="stMetricLabel"] > div {
-    color: rgba(255,255,255,0.65) !important;
+    color: rgba(255,255,255,0.70) !important;
+    font-size: 11px !important;
 }
 /* 侧边栏 expander */
 section[data-testid="stSidebar"] div[data-testid="stExpander"] {
-    background: rgba(255,255,255,0.03) !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
+    background: rgba(255,255,255,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
     border-radius: var(--radius-sm) !important;
 }
-/* 侧边栏 success/warning 提示 */
+/* 侧边栏 success/warning 提示 - 消除绿色/黄色背景 */
 section[data-testid="stSidebar"] div[data-testid="stAlert"] {
     border-radius: var(--radius-sm) !important;
-    font-size: 13px !important;
-    background: rgba(255,255,255,0.08) !important;
+    font-size: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
     border: none !important;
+}
+section[data-testid="stSidebar"] div[data-testid="stAlert"] > div,
+section[data-testid="stSidebar"] [data-baseweb="notification"] {
+    background: rgba(255,255,255,0.14) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 7px 10px !important;
+    border-left: none !important;
+    font-size: 12px !important;
+}
+section[data-testid="stSidebar"] [data-baseweb="notification"] * {
+    color: rgba(255,255,255,0.95) !important;
+}
+/* 侧边栏 expander header 紧凑 */
+section[data-testid="stSidebar"] div[data-testid="stExpander"] summary {
+    padding: 8px 12px !important;
+    min-height: unset !important;
 }
 
 /* ── Tabs ── */
@@ -456,7 +492,7 @@ hr {
     padding: 12px 14px;
     border-radius: var(--radius-md);
     border-left: 4px solid;
-    background: #fafafa;
+    background: var(--clr-bg);
     transition: var(--transition);
 }
 .cs-event:hover { box-shadow: var(--shadow-sm); }
@@ -468,15 +504,16 @@ hr {
 
 /* ── 报告封面 ── */
 .cs-report-header {
-    background: linear-gradient(135deg, var(--clr-primary) 0%, #8B5CF6 100%);
+    background: #EDE8E2;
+    border: 1px solid #D9D3CB;
     border-radius: var(--radius-lg);
     padding: 32px 36px;
-    color: #fff;
+    color: #1A1715;
     margin-bottom: 28px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
-.cs-report-header h2 { color: #fff !important; margin: 0 0 8px; font-size: 22px; }
-.cs-report-header .subtitle { opacity: 0.9; font-size: 13px; }
+.cs-report-header h2 { color: #1A1715 !important; margin: 0 0 8px; font-size: 22px; }
+.cs-report-header .subtitle { color: #7A736C; font-size: 13px; }
 
 /* ── 风险卡片 ── */
 .cs-risk-card {
@@ -507,11 +544,11 @@ hr {
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
-.cs-rec-item:hover { box-shadow: var(--shadow-md); border-color: var(--clr-teal); }
+.cs-rec-item:hover { box-shadow: var(--shadow-md); border-color: var(--clr-primary); }
 .cs-rec-num {
     width: 28px; height: 28px; min-width: 28px;
     border-radius: 50%;
-    background: var(--clr-teal);
+    background: var(--clr-primary);
     color: #fff;
     font-weight: 700;
     font-size: 13px;
@@ -529,7 +566,7 @@ hr {
     box-shadow: var(--shadow-sm);
 }
 .cs-hero h3 { margin: 0 0 10px; color: var(--clr-primary) !important; font-size: 18px; }
-.cs-hero p  { color: var(--clr-text-muted); font-size: 14.5px; line-height: 1.7; margin: 0; }
+.cs-hero p  { color: #4A4440; font-size: 14.5px; line-height: 1.7; margin: 0; }
 
 /* ── 统计大卡片 ── */
 .cs-stat-card {
@@ -547,16 +584,16 @@ hr {
 
 /* ── 作者信息卡片 ── */
 .cs-author-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.20);
     border-radius: var(--radius-md);
-    padding: 14px 16px;
-    margin-top: 4px;
+    padding: 10px 12px;
+    margin-top: 2px;
 }
-.cs-author-card .name  { font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 4px; }
-.cs-author-card .email { font-size: 12px; color: rgba(255,255,255,0.72); margin-bottom: 4px; }
-.cs-author-card .link  { font-size: 12px; }
-.cs-author-card .inst  { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 6px; }
+.cs-author-card .name  { font-weight: 700; font-size: 12px; color: #fff; margin-bottom: 3px; }
+.cs-author-card .email { font-size: 11px; color: rgba(255,255,255,0.72); margin-bottom: 3px; }
+.cs-author-card .link  { font-size: 11px; }
+.cs-author-card .inst  { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; }
 
 /* ── 快速开始步骤 ── */
 .cs-quickstart {
@@ -609,8 +646,8 @@ hr {
 
 /* ── 分析完成提示区 ── */
 .cs-completion-card {
-    background: linear-gradient(135deg, #EEF2FF 0%, #F0F9FF 100%);
-    border: 1px solid #C7D2FE;
+    background: linear-gradient(135deg, #FAEEE9 0%, #FDF6F3 100%);
+    border: 1px solid #EDCFC4;
     border-radius: var(--radius-lg);
     padding: 24px 28px;
     margin-top: 8px;
@@ -649,12 +686,12 @@ def render_sidebar():
         # 将标题替换为自定义字号的 HTML
         st.markdown(
             """
-            <div style="padding: 0px 0 8px;">
-                <h1 style='font-size: 36px; margin: 6; color: #fff !important; font-weight: 600; letter-spacing: -1px;'>
+            <div style="padding: 0px 0 4px;">
+                <h1 style='font-size: 24px; margin: 0; color: #fff !important; font-weight: 600; letter-spacing: -0.5px;'>
                     🧠 CogSense
                 </h1>
-                <div style="font-size: 12px; color: rgba(255,255,255,0.62); margin-top: 4px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 400;">
-                                 ________认知健康 · 无感监测________
+                <div style="font-size: 10px; color: rgba(255,255,255,0.60); margin-top: 3px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 400;">
+                    认知健康 · 无感监测
                 </div>
             </div>
             """,
@@ -673,7 +710,7 @@ def render_sidebar():
         
         # 数据管理
         st.markdown(
-            "<p style='font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin-bottom:8px;'>数据管理</p>",
+            "<p style='font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin:4px 0;'>数据管理</p>",
             unsafe_allow_html=True
         )
         
@@ -704,7 +741,7 @@ def render_sidebar():
         
         # 统计信息
         st.markdown(
-            "<p style='font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin-bottom:8px;'>系统统计</p>",
+            "<p style='font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin:4px 0;'>系统统计</p>",
             unsafe_allow_html=True
         )
         stats = st.session_state.database_manager.get_statistics()
@@ -734,7 +771,7 @@ def render_sidebar():
             <div class="email">📧 jingky@life.hkbu.edu.hk</div>
             <div class="link">
                 <a href="https://github.com/JING-KY?tab=repositories"
-                   style="color:rgba(255,255,255,0.80); text-decoration:none;">
+                   style="color:rgba(255,255,255,0.85); text-decoration:none; font-weight:500;">
                     🔗 GitHub Repository
                 </a>
             </div>
@@ -801,9 +838,9 @@ def render_overview_page():
     with col1:
         st.markdown("""
         <div class="cs-feature-card">
-            <div class="cs-feature-icon" style="background:#EEF2FF; color:#4F46E5;">🎙️</div>
-            <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#111827;">对话生成</div>
-            <div style="font-size:13px; color:#6B7280; line-height:1.8;">
+            <div class="cs-feature-icon" style="background:#FAEEE9; color:#C96442;">🎙️</div>
+            <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#1A1715;">对话生成</div>
+            <div style="font-size:13px; color:#7A736C; line-height:1.8;">
                 ✦ 模拟真实家庭场景<br>
                 ✦ 三类不同认知状态<br>
                 ✦ 多样化的对话场景
@@ -814,9 +851,9 @@ def render_overview_page():
     with col2:
         st.markdown("""
         <div class="cs-feature-card">
-            <div class="cs-feature-icon" style="background:#F0F9FF; color:#0EA5E9;">🔍</div>
-            <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#111827;">语言分析</div>
-            <div style="font-size:13px; color:#6B7280; line-height:1.8;">
+            <div class="cs-feature-icon" style="background:#FDF0EA; color:#D9855E;">🔍</div>
+            <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#1A1715;">语言分析</div>
+            <div style="font-size:13px; color:#7A736C; line-height:1.8;">
                 ✦ 词汇丰富度分析<br>
                 ✦ 语义连贯性评估<br>
                 ✦ 时间定向性检测
@@ -827,9 +864,9 @@ def render_overview_page():
     with col3:
         st.markdown("""
         <div class="cs-feature-card">
-            <div class="cs-feature-icon" style="background:#F5F3FF; color:#8B5CF6;">📊</div>
-            <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#111827;">认知评分</div>
-            <div style="font-size:13px; color:#6B7280; line-height:1.8;">
+            <div class="cs-feature-icon" style="background:#FAE8E0; color:#A5502F;">📊</div>
+            <div style="font-weight:700; font-size:15px; margin-bottom:10px; color:#1A1715;">认知评分</div>
+            <div style="font-size:13px; color:#7A736C; line-height:1.8;">
                 ✦ 五维评分体系<br>
                 ✦ 风险等级评定<br>
                 ✦ 专业报告生成
@@ -861,7 +898,7 @@ def render_overview_page():
         .layer-title {
             font-size: clamp(14px, 2vw, 20px);
             font-weight: bold;
-            color: #111827;
+            color: #1A1715;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
@@ -891,8 +928,8 @@ def render_overview_page():
         }
         .module-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(79,70,229,0.15);
-            border-color: #4F46E5;
+            box-shadow: 0 4px 12px rgba(201,100,66,0.15);
+            border-color: #C96442;
         }
         .module-icon {
             font-size: clamp(18px, 3vw, 32px);
@@ -901,14 +938,14 @@ def render_overview_page():
         }
         .module-name {
             font-weight: 600;
-            color: #111827;
+            color: #1A1715;
             margin-bottom: 5px;
             font-size: clamp(10px, 1.2vw, 14px);
             word-break: break-word;
         }
         .module-desc {
             font-size: clamp(9px, 1vw, 12px);
-            color: #6B7280;
+            color: #7A736C;
             word-break: break-word;
         }
         .arrow {
@@ -923,7 +960,7 @@ def render_overview_page():
 
     # 第一层：用户界面层
     st.markdown("""
-        <div class="layer" style="border-left: 5px solid #4F46E5;">
+        <div class="layer" style="border-left: 5px solid #C96442;">
             <div class="layer-title">
                 <span class="icon">🖥️</span>
                 用户界面层 (Streamlit Web Application)
@@ -955,7 +992,7 @@ def render_overview_page():
 
     # 第二层：核心模块层
     st.markdown("""
-        <div class="layer" style="border-left: 5px solid #0EA5E9; margin-top: 15px;">
+        <div class="layer" style="border-left: 5px solid #D9855E; margin-top: 15px;">
             <div class="layer-title">
                 <span class="icon">⚙️</span>
                 核心模块层 (Business Logic & Processing)
@@ -992,7 +1029,7 @@ def render_overview_page():
 
     # 第三层：数据层
     st.markdown("""
-        <div class="layer" style="border-left: 5px solid #8B5CF6; margin-top: 15px;">
+        <div class="layer" style="border-left: 5px solid #EAA882; margin-top: 15px;">
             <div class="layer-title">
                 <span class="icon">💿</span>
                 数据层 (Storage & External Services)
@@ -1067,40 +1104,40 @@ def render_overview_page():
     
     with col2:
         st.markdown("""
-        <div class="cs-card" style="border-top: 3px solid #4F46E5;">
-            <div style="font-weight:700; font-size:15px; margin-bottom:14px; color:#4F46E5;">
+        <div class="cs-card" style="border-top: 3px solid #C96442;">
+            <div style="font-weight:700; font-size:15px; margin-bottom:14px; color:#C96442;">
                 📐 五维认知评分体系
             </div>
             <div class="cs-dim-item">
-                <div class="cs-dim-dot" style="background:#4F46E5;"></div>
-                <div class="cs-dim-name">记忆力 <span style="font-size:11px;color:#6B7280;">(Memory)</span></div>
+                <div class="cs-dim-dot" style="background:#C96442;"></div>
+                <div class="cs-dim-name">记忆力 <span style="font-size:11px;color:#7A736C;">(Memory)</span></div>
                 <div class="cs-dim-pct">25%</div>
             </div>
-            <div style="font-size:12px;color:#6B7280;padding: 2px 0 10px 22px;">评估短期记忆和信息保持能力</div>
+            <div style="font-size:12px;color:#7A736C;padding: 2px 0 10px 22px;">评估短期记忆和信息保持能力</div>
             <div class="cs-dim-item">
-                <div class="cs-dim-dot" style="background:#0EA5E9;"></div>
-                <div class="cs-dim-name">计划能力 <span style="font-size:11px;color:#6B7280;">(Planning)</span></div>
+                <div class="cs-dim-dot" style="background:#60A5FA;"></div>
+                <div class="cs-dim-name">计划能力 <span style="font-size:11px;color:#7A736C;">(Planning)</span></div>
                 <div class="cs-dim-pct">20%</div>
             </div>
-            <div style="font-size:12px;color:#6B7280;padding: 2px 0 10px 22px;">评估执行功能和逻辑思维能力</div>
+            <div style="font-size:12px;color:#7A736C;padding: 2px 0 10px 22px;">评估执行功能和逻辑思维能力</div>
             <div class="cs-dim-item">
                 <div class="cs-dim-dot" style="background:#8B5CF6;"></div>
-                <div class="cs-dim-name">回忆能力 <span style="font-size:11px;color:#6B7280;">(Recall)</span></div>
+                <div class="cs-dim-name">回忆能力 <span style="font-size:11px;color:#7A736C;">(Recall)</span></div>
                 <div class="cs-dim-pct">20%</div>
             </div>
-            <div style="font-size:12px;color:#6B7280;padding: 2px 0 10px 22px;">评估长期记忆和信息提取能力</div>
+            <div style="font-size:12px;color:#7A736C;padding: 2px 0 10px 22px;">评估长期记忆和信息提取能力</div>
             <div class="cs-dim-item">
                 <div class="cs-dim-dot" style="background:#F59E0B;"></div>
-                <div class="cs-dim-name">连贯性 <span style="font-size:11px;color:#6B7280;">(Coherence)</span></div>
+                <div class="cs-dim-name">连贯性 <span style="font-size:11px;color:#7A736C;">(Coherence)</span></div>
                 <div class="cs-dim-pct">20%</div>
             </div>
-            <div style="font-size:12px;color:#6B7280;padding: 2px 0 10px 22px;">评估语言组织和逻辑连贯性</div>
+            <div style="font-size:12px;color:#7A736C;padding: 2px 0 10px 22px;">评估语言组织和逻辑连贯性</div>
             <div class="cs-dim-item">
                 <div class="cs-dim-dot" style="background:#F43F5E;"></div>
-                <div class="cs-dim-name">时间定向 <span style="font-size:11px;color:#6B7280;">(Temporal Orientation)</span></div>
+                <div class="cs-dim-name">时间定向 <span style="font-size:11px;color:#7A736C;">(Temporal Orientation)</span></div>
                 <div class="cs-dim-pct">15%</div>
             </div>
-            <div style="font-size:12px;color:#6B7280;padding: 2px 0 4px 22px;">评估时间感知和定向能力</div>
+            <div style="font-size:12px;color:#7A736C;padding: 2px 0 4px 22px;">评估时间感知和定向能力</div>
         </div>
         """, unsafe_allow_html=True)
     
@@ -1247,7 +1284,7 @@ def render_monitoring_page():
     with col1:
         group_labels = {"HC": "认知健康", "MCI": "轻度认知障碍", "ED": "早期痴呆"}
         group_val = group_labels.get(selected_dialogue_data['group'], '未知')
-        group_color = {"HC": "#10B981", "MCI": "#F59E0B", "ED": "#EF4444"}.get(selected_dialogue_data['group'], "#6B7280")
+        group_color = {"HC": "#10B981", "MCI": "#F59E0B", "ED": "#EF4444"}.get(selected_dialogue_data['group'], "#7A736C")
         st.markdown(f"""
         <div class="cs-info-badge">
             <div class="label">认知组别</div>
@@ -1355,10 +1392,10 @@ def render_monitoring_page():
     if st.session_state.monitoring_index >= len(dialogue) and not st.session_state.monitoring_active:
         st.markdown("""
         <div class="cs-completion-card">
-            <div style="font-size:18px; font-weight:700; color:#4F46E5; margin-bottom:6px;">
+            <div style="font-size:18px; font-weight:700; color:#C96442; margin-bottom:6px;">
                 ✅ 对话监测完成！
             </div>
-            <div style="font-size:13.5px; color:#111827;">
+            <div style="font-size:13.5px; color:#1A1715;">
                 所有对话轮次已播放完毕，可点击下方按钮进行完整分析。
             </div>
         </div>
@@ -1449,12 +1486,12 @@ def render_dialogue_turn(turn: dict, index: int):
     if speaker == "elder":
         st.markdown(f"""
         <div class="cs-bubble-elder">
-            <div class="cs-bubble-speaker" style="color:#4F46E5;">
-                <span style="background:#4F46E5;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👴</span>
+            <div class="cs-bubble-speaker" style="color:#C96442;">
+                <span style="background:#C96442;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👴</span>
                 老人
-                <span style="font-size:11px;color:#6B7280;font-weight:400;margin-left:4px;">#{index+1}</span>
+                <span style="font-size:11px;color:#7A736C;font-weight:400;margin-left:4px;">#{index+1}</span>
             </div>
-            <div class="cs-bubble-text" style="color:#111827;">
+            <div class="cs-bubble-text" style="color:#1A1715;">
                 {text}
             </div>
         </div>
@@ -1462,12 +1499,12 @@ def render_dialogue_turn(turn: dict, index: int):
     else:
         st.markdown(f"""
         <div class="cs-bubble-family">
-            <div class="cs-bubble-speaker" style="color:#0EA5E9;">
-                <span style="background:#0EA5E9;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👨‍👩‍👧</span>
+            <div class="cs-bubble-speaker" style="color:#D9855E;">
+                <span style="background:#D9855E;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👨‍👩‍👧</span>
                 家人
-                <span style="font-size:11px;color:#6B7280;font-weight:400;margin-left:4px;">#{index+1}</span>
+                <span style="font-size:11px;color:#7A736C;font-weight:400;margin-left:4px;">#{index+1}</span>
             </div>
-            <div class="cs-bubble-text" style="color:#111827;">
+            <div class="cs-bubble-text" style="color:#1A1715;">
                 {text}
             </div>
         </div>
@@ -1928,7 +1965,7 @@ def render_report_page():
     st.markdown(f"""
     <div class="cs-report-header">
         <div style="font-size:11px; text-transform:uppercase; letter-spacing:2px;
-                    opacity:0.8; margin-bottom:10px; font-weight:600;">
+                    color:#7A736C; margin-bottom:10px; font-weight:600;">
             📄 COGNITIVE HEALTH ASSESSMENT REPORT
         </div>
         <h2>{report['title']}</h2>
@@ -1943,8 +1980,8 @@ def render_report_page():
     # 执行摘要
     st.subheader("📋 执行摘要")
     st.markdown(f"""
-    <div class="cs-card" style="border-left: 4px solid #4F46E5;">
-        <div style="font-size:14.5px; line-height:1.8; color:#111827;">
+    <div class="cs-card" style="border-left: 4px solid #C96442;">
+        <div style="font-size:14.5px; line-height:1.8; color:#1A1715;">
             {report["summary"]}
         </div>
     </div>
