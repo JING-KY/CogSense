@@ -4,7 +4,7 @@ A proof-of-concept system for passive cognitive health monitoring through automa
 
 ## 🌐 Live Demo
 
-👉 **[Try CogSense Online](你的Streamlit链接，稍后填写)**
+👉 **[Try CogSense Online](https://cogsense-v0-0-0.streamlit.app/)**
 
 ## 📖 Overview
 
