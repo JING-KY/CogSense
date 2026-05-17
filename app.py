@@ -93,8 +93,8 @@ st.markdown("""
     --clr-primary:      #C96442;   /* Claude 标志橙·主色调 */
     --clr-primary-lt:   #FAEEE9;   /* 极浅橙 */
     --clr-primary-dk:   #A5502F;   /* 深橙 */
-    --clr-teal:         #D9855E;   /* 中橙·辅助色 */
-    --clr-teal-lt:      #FDF0EA;
+    --clr-teal:         #5C8BA0;   /* 雾霭蓝·家人气泡 */
+    --clr-teal-lt:      #EBF4F8;
     --clr-coral:        #C96442;   /* 与主色统一 */
     --clr-bg:           #FFFFFF;   /* 纯白主背景 */
     --clr-card:         #FFFFFF;
@@ -226,7 +226,12 @@ section[data-testid="stSidebar"] {
 section[data-testid="stSidebar"] > div {
     padding-top: 0.6rem !important;
 }
-/* 压缩侧边栏 Streamlit 默认的大留白，但保留模块间呼吸感 */
+/* 关键修复：消除 stMarkdownContainer 默认 margin，确保所有页面侧边栏间距一致 */
+section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* 模块间统一呼吸感 */
 section[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
     gap: 0.3rem !important;
 }
@@ -260,7 +265,7 @@ section[data-testid="stSidebar"] div[data-testid="stRadio"] label {
     gap: 6px !important;
     transition: var(--transition) !important;
     color: rgba(255,255,255,0.85) !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-weight: 500 !important;
 }
 section[data-testid="stSidebar"] div[data-testid="stRadio"] label:hover {
@@ -326,6 +331,10 @@ section[data-testid="stSidebar"] [data-baseweb="notification"] {
     padding: 7px 10px !important;
     border-left: none !important;
     font-size: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
 }
 section[data-testid="stSidebar"] [data-baseweb="notification"] * {
     color: rgba(255,255,255,0.95) !important;
@@ -507,7 +516,7 @@ hr {
     background: #EDE8E2;
     border: 1px solid #D9D3CB;
     border-radius: var(--radius-lg);
-    padding: 32px 36px;
+    padding: 18px 28px;
     color: #1A1715;
     margin-bottom: 28px;
     box-shadow: var(--shadow-md);
@@ -675,6 +684,40 @@ hr {
 .cs-dim-name { font-weight: 600; font-size: 13.5px; flex: 1; color: var(--clr-text); }
 .cs-dim-pct  { font-size: 12px; font-weight: 600; color: var(--clr-text-muted); white-space: nowrap; }
 .cs-dim-desc { font-size: 12px; color: var(--clr-text-muted); }
+
+/* ── 深色模式强制兼容：防止手机深色模式导致文字消失 ── */
+@media (prefers-color-scheme: dark) {
+    :root { color-scheme: light; }
+    .stApp, .stApp * { color-scheme: light; }
+    /* 确保主内容区背景和文字在深色系统下保持浅色 */
+    .stApp { background-color: #FFFFFF !important; }
+    html, body { background-color: #FFFFFF !important; color: #1A1715 !important; }
+    /* 所有自定义组件强制浅色 */
+    .cs-card, .cs-hero, .cs-metric, .cs-step,
+    .cs-bubble-elder, .cs-bubble-family,
+    .cs-report-header, .cs-completion-card,
+    .cs-rec-item, .cs-dim-item, .cs-event,
+    .cs-feature-card, .cs-badge,
+    [data-testid="stMetric"],
+    [data-testid="stExpander"],
+    .stTabs [data-baseweb="tab-panel"] {
+        background-color: var(--clr-card) !important;
+        color: var(--clr-text) !important;
+    }
+    p, h1, h2, h3, h4, h5, h6, li, span, div, label {
+        color: var(--clr-text) !important;
+    }
+    /* Streamlit 原生组件文字 */
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] li,
+    [data-testid="stMarkdownContainer"] span { color: var(--clr-text) !important; }
+    [data-testid="stMetricValue"] > div { color: var(--clr-text) !important; }
+    [data-testid="stMetricLabel"] > div { color: var(--clr-text-muted) !important; }
+    /* 表格 */
+    table, th, td { color: var(--clr-text) !important; background: var(--clr-card) !important; }
+    /* 输入框 */
+    input, textarea, select { background: #FFFFFF !important; color: var(--clr-text) !important; }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -687,10 +730,10 @@ def render_sidebar():
         st.markdown(
             """
             <div style="padding: 0px 0 4px;">
-                <h1 style='font-size: 24px; margin: 0; color: #fff !important; font-weight: 600; letter-spacing: -0.5px;'>
+                <h1 style='font-size: 28px; margin: 0; color: #fff !important; font-weight: 700; letter-spacing: -0.5px;'>
                     🧠 CogSense
                 </h1>
-                <div style="font-size: 10px; color: rgba(255,255,255,0.60); margin-top: 3px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 400;">
+                <div style="font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 4px; letter-spacing: 1.0px; font-weight: 400;">
                     认知健康 · 无感监测
                 </div>
             </div>
@@ -1499,8 +1542,8 @@ def render_dialogue_turn(turn: dict, index: int):
     else:
         st.markdown(f"""
         <div class="cs-bubble-family">
-            <div class="cs-bubble-speaker" style="color:#D9855E;">
-                <span style="background:#D9855E;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👨‍👩‍👧</span>
+            <div class="cs-bubble-speaker" style="color:#5C8BA0;">
+                <span style="background:#5C8BA0;color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;">👨‍👩‍👧</span>
                 家人
                 <span style="font-size:11px;color:#7A736C;font-weight:400;margin-left:4px;">#{index+1}</span>
             </div>
