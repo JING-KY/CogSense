@@ -730,11 +730,11 @@ def render_sidebar():
         st.markdown(
             """
             <div style="padding: 0px 0 4px;">
-                <h1 style='font-size: 28px; margin: 0; color: #fff !important; font-weight: 700; letter-spacing: -0.5px;'>
+                <h1 style='font-size: 36px; margin: 0; color: #fff !important; font-weight: 700; letter-spacing: -0.5px;'>
                     🧠 CogSense
                 </h1>
-                <div style="font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 4px; letter-spacing: 1.0px; font-weight: 400;">
-                    认知健康 · 无感监测
+                <div style="font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 4px; letter-spacing: 1.0px; font-weight: 400;">
+                    _________认知健康 · 无感监测_________
                 </div>
             </div>
             """,
@@ -753,7 +753,7 @@ def render_sidebar():
         
         # 数据管理
         st.markdown(
-            "<p style='font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin:4px 0;'>数据管理</p>",
+            "<p style='font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin:4px 0;'>数据管理</p>",
             unsafe_allow_html=True
         )
         
@@ -784,7 +784,7 @@ def render_sidebar():
         
         # 统计信息
         st.markdown(
-            "<p style='font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin:4px 0;'>系统统计</p>",
+            "<p style='font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:rgba(255,255,255,0.55); margin:4px 0;'>系统统计</p>",
             unsafe_allow_html=True
         )
         stats = st.session_state.database_manager.get_statistics()
