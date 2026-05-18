@@ -1424,7 +1424,7 @@ def render_monitoring_page():
     # 自动播放逻辑
     if st.session_state.monitoring_active:
         if st.session_state.monitoring_index < len(dialogue):
-            time.sleep(1.5)  # 每1.5秒播放一句
+            time.sleep(0.75)  # 每0.75秒播放一句
             st.session_state.monitoring_index += 1
             st.rerun()
         else:
