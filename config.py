@@ -9,7 +9,7 @@ import os
 # 优先使用环境变量，本地开发时使用默认值
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "sk-55095a34f24143668f49ffd9d020fd33")
 OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
-MODEL_NAME = os.getenv("MODEL_NAME", "qwen-plus")
+MODEL_NAME = os.getenv("MODEL_NAME", "qwen-max")
 
 # ==================== 数据生成配置 ====================
 DIALOGUE_CONFIG = {
